@@ -16,48 +16,19 @@ public class RunATM
 {
     public static void main(String args[])
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Press the Enter key for menu: \n");
-        menu();
-    }
-    
-    public static void menu()
+    int[] acctArray = new int[3];
+    Scanner sc = new Scanner(System.in);
+    int i;
+    for (i=0; i < acctArray.length; )
     {
-        Scanner sc = new Scanner(System.in);
-        ATM A1 = new ATM();
-        boolean quit = false;
-        String menuItem;
-        do {
-            System.out.println("Welcome to your Bank Account:");
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Check Balance");
-            System.out.println("4. Exit");
-            System.out.print("Choose menu item: ");
-            menuItem = sc.next();
-            switch (Integer.parseInt(menuItem)) 
-            {
-        case 1:
-            System.out.println("You have choosen to deposit:");
-            A1.Deposit();
-        break;
-        case 2:
-            System.out.println("You have choosen to withdraw:");
-            A1.Withdraw();
-        break;
-        case 3:
-            System.out.println("You have choosen to check your balance:");
-            A1.CheckBalance();
-        break;
-              
-        case 4:
-            quit = true;
-        break;
-        default:
-            System.out.println("Invalid menu choice, please make another selection.");
-        }
-    } 
-    while (!quit);
-    System.out.println("Exit");
+    System.out.println("Your new Account number is " + acctArray[i]);
+    acctArray[i] = i + 1;
+    System.out.println("Please enter your First Name");
+    String firstName = sc.next();
+    System.out.println("Please enter your Last Name");
+    String lastName = sc.next();
+    System.out.println("Account " + acctArray[i] + " belongs to " + firstName + " " + lastName);
+    }
+    i++;
     }
 }

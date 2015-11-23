@@ -10,6 +10,7 @@ package ATM;
  *
  * @author bpwc0b
  */
-public class Savings {
+public class Savings 
+{
     
 }
