@@ -15,64 +15,14 @@ import java.util.Scanner;
  */
 public class ATM 
 {
+    Scanner sc = new Scanner(System.in);
+    
     public static void main(String [] args)
     {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Press the Enter key for menu: \n");
-        accountMenu();
-    }
-    public void Deposit()
-    {
-        System.out.println("You are in Deposit");
-    }
-    public void Withdraw()
-    {
-        System.out.println("You are in Withdraw");
-    }
-    public void CheckBalance()
-    {
-        System.out.println("You are in Check Balance");
-    }
-    public static void accountMenu()
-    {
-        Scanner sc = new Scanner(System.in);
-        ATM A1 = new ATM();
-        boolean quit = false;
-        String menuItem;
-        do {
-            System.out.println("Welcome to your Bank Account:");
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Check Balance");
-            System.out.println("4. Exit");
-            System.out.print("Choose menu item: ");
-            menuItem = sc.next();
-            switch (Integer.parseInt(menuItem)) 
-            {
-        case 1:
-            System.out.println("You have choosen to deposit:");
-            A1.Deposit();
-        break;
-        case 2:
-            System.out.println("You have choosen to withdraw:");
-            A1.Withdraw();
-        break;
-        case 3:
-            System.out.println("You have choosen to check your balance:");
-            A1.CheckBalance();
-        break;
-              
-        case 4:
-            quit = true;
-        break;
-        default:
-            System.out.println("Invalid menu choice, please make another selection.");
-        }
+        Account A1 = new Account();
+        A1.mainMenu();
     } 
-    while (!quit);
-    System.out.println("Exit");
-    }
 }
-
 
 

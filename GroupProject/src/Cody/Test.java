@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package ATM;
+package Cody;
 
 /**
  *
- * @author bpwc0b
+ * @author wetteb
  */
-public class Savings 
+public class Test
 {
     
 }

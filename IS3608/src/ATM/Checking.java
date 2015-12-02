@@ -10,6 +10,7 @@ package ATM;
  *
  * @author bpwc0b
  */
-public class Checking {
+public class Checking 
+{
     
 }

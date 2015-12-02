@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package ATM;
+package DevTestEnvironment;
 
 /**
  *
- * @author bpwc0b
+ * @author wetteb
  */
-public class Savings 
+public class RunMyMethods
 {
-    
+
+    public static void main(String args[])
+    {
+        
+    }
 }
