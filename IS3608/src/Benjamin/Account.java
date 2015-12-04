@@ -15,7 +15,7 @@ import java.lang.*;
  *
  * @author bpwc0b
  */
-public class Account //implements Serializable //only if printing out file
+public class Account implements Serializable //only if printing out file
 {
     Scanner sc = new Scanner(System.in);
     protected double balance;
@@ -102,13 +102,18 @@ public class Account //implements Serializable //only if printing out file
             }  
         }
     }
-    public void accountMenu()   
+
+    public void accountSelect()
     {
         System.out.println("Please select your account");
         System.out.println("1:" + acctArray[0] );
         System.out.println("2:" + acctArray[1] );
         System.out.println("3:" + acctArray[2] );
-                
+        
+    }
+        
+    public void accountMenu()   
+    {
         boolean quit = false;
         do 
         {
