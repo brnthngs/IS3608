@@ -1,5 +1,4 @@
 package TestFileReadWrite;
-
 // Test.java
 public class Test implements java.io.Serializable
 {
@@ -8,6 +7,7 @@ public class Test implements java.io.Serializable
 	
 	public Test()
 	{
+            
 	}
 	public Test(String s, int i)
 	{
