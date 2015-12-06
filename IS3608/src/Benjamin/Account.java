@@ -15,7 +15,7 @@ import java.lang.*;
  *
  * @author bpwc0b
  */
-public class Account //implements Serializable //only if printing out file
+public class Account implements Serializable //only if printing out file
 {
     Scanner sc = new Scanner(System.in);
     protected double balance;
@@ -27,7 +27,6 @@ public class Account //implements Serializable //only if printing out file
     protected double rate;
     String menuItem;
     int acctArray[] = new int[3];
-    
 
     public void Deposit()
     {
@@ -51,9 +50,9 @@ public class Account //implements Serializable //only if printing out file
         System.out.println("|-----------------------------------------------|");
         System.out.println("|            Choose an option below:            |");
         System.out.println("|                                               |");
-        System.out.println("|             1.  Access your current Account   |");
-        System.out.println("|             2.  Create a new Account          |");
-        System.out.println("|             3.  Delete your Facebook Page     |");
+        System.out.println("|         1.  Access your current Account       |");
+        System.out.println("|         2.  Create a new Account              |");
+        System.out.println("|         3.  Delete your Facebook Page         |");
         System.out.println("|                                               |");
         System.out.println("|-----------------------------------------------|");
         menuItem = sc.next();
@@ -103,13 +102,18 @@ public class Account //implements Serializable //only if printing out file
             }  
         }
     }
-    public void accountMenu()   
+
+    public void accountSelect()
     {
         System.out.println("Please select your account");
         System.out.println("1:" + acctArray[0] );
         System.out.println("2:" + acctArray[1] );
         System.out.println("3:" + acctArray[2] );
-                
+        
+    }
+        
+    public void accountMenu()   
+    {
         boolean quit = false;
         do 
         {
@@ -150,14 +154,14 @@ public class Account //implements Serializable //only if printing out file
     }
 
     public void getInterest()
-        {
-            int datediff = seconddate - firstdate;
-            rate = .05/365;
-            double ratetime = Math.pow(1+rate,datediff);
-            balance = balance * ratetime;
-            firstdate = seconddate;
+    {
+        int datediff = seconddate - firstdate;
+        rate = .05/365;
+        double ratetime = Math.pow(1+rate,datediff);
+        balance = balance * ratetime;
+        firstdate = seconddate;
 
-        }
+    }
 
     public void getDate1() throws IOException 
     {
