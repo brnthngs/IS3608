@@ -26,6 +26,7 @@ public class Account implements Serializable //only if printing out file
     protected boolean dateflag = false;
     protected double rate;
     String menuItem;
+    int accountSelection;
     int acctArray[] = new int[3];
 
     public void Deposit()
@@ -109,6 +110,12 @@ public class Account implements Serializable //only if printing out file
         System.out.println("1:" + acctArray[0] );
         System.out.println("2:" + acctArray[1] );
         System.out.println("3:" + acctArray[2] );
+        accountSelection = sc.nextInt();
+        
+        if (accountSelection == 1)
+        {
+            
+        }
         
     }
         

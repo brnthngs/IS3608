@@ -6,7 +6,8 @@
 
 package ATM;
 
-import java.io.*;
+
+import Benjamin.*;
 import java.util.Scanner;
 
 /**
@@ -15,6 +16,50 @@ import java.util.Scanner;
  */
 public class ATM 
 {
+   
     
+    public static void main(String [] args)
+    {
+        mainMenu();
+    }
     
+    public static void mainMenu()
+    {
+        
+        int menuItem;
+         Scanner sc = new Scanner(System.in);
+        Account a1 = new Account();
+        {
+        System.out.println("|-----------------------------------------------|");
+        System.out.println("|            Welcome to WWSYM Bank!             |");
+        System.out.println("|         (We Will Steal Your Money LLC)        |");
+        System.out.println("|-----------------------------------------------|");
+        System.out.println("|            Choose an option below:            |");
+        System.out.println("|                                               |");
+        System.out.println("|         1.  Access your current Account       |");
+        System.out.println("|         2.  Create a new Account              |");
+        System.out.println("|                                               |");
+        System.out.println("|                                               |");
+        System.out.println("|-----------------------------------------------|");
+        menuItem = sc.nextInt();
+        
+        switch (menuItem) 
+            {
+            case 1:
+                System.out.println("You have selected your current Account:");
+                a1.accountMenu();
+            break;
+            case 2:
+                System.out.println("You have selected to create a new Account:");
+                a1.createAccount();
+            break;
+            default:
+                System.out.println("Invalid menu choice, please make another selection.");
+            break;
+            }
+        }
+       
+    }
 }
+
+
