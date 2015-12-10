@@ -123,10 +123,10 @@ public class User
      */
     public void printAccountsSummary()
     {
-        System.out.printf("\n\n%s's acounts summary", this.firstName);
+        System.out.printf("\n\n%s's acounts summary\n", this.firstName);
         for (int a = 0; a < this.accounts.size(); a++)
         {
-            System.out.printf("%d) %s\n", a+1, 
+            System.out.printf("  %d) %s\n", a+1, 
                     this.accounts.get(a).getSummaryLine());
         }
         System.out.println();
@@ -148,4 +148,28 @@ public class User
         this.accounts.get(acctIdx).printTransHistory();
     }
     
+    /**
+     * Get the balance of a particular account
+     * @param acctIdx   the index of the account to use
+     * @return          the balance of the account
+     */
+    public double getAcctBalance(int acctIdx)
+    {
+        return this.accounts.get(acctIdx).getBalance();
+    }
+    
+    /**
+     * Get the UUID of a particular account
+     * @param acctIdx   the index of the account to use
+     * @return          the UUID of the account
+     */
+    public String getAcctUUID(int acctIdx)
+    {
+        return this.accounts.get(acctIdx).getUUID();
+    }
+    
+    public void addAcctTransaction(int acctIdx, double amount, String memo)
+    {
+        this.accounts.get(acctIdx).addTransaction(amount, memo);
+    }
 }
