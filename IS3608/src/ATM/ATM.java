@@ -17,12 +17,18 @@ import java.util.Scanner;
 public class ATM 
 {
    
-    
+    /**
+     * Main method, inits the program
+     * @param args  
+     */
     public static void main(String [] args)
     {
         mainMenu();
+        
     }
-    
+    /**
+     * First menu presented to user
+     */
     public static void mainMenu()
     {
         
@@ -47,14 +53,15 @@ public class ATM
             {
             case 1:
                 System.out.println("You have selected your current Account:");
-                a1.accountMenu();
+                a1.acctMenu();
             break;
             case 2:
                 System.out.println("You have selected to create a new Account:");
-                a1.createAccount();
+                a1.createAcct();
             break;
             default:
-                System.out.println("Invalid menu choice, please make another selection.");
+                System.out.println("Invalid menu choice, please make another "
+                        + "selection.");
             break;
             }
         }

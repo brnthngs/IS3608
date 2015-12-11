@@ -6,11 +6,14 @@
 
 package ATM;
 
-import Benjamin.*;
-import java.io.*;
-import java.text.*;
-import java.util.*;
-import java.lang.*;
+
+// import functions from Java API
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
 //import java.io.BufferedWriter;
 //import java.io.File;
 //import java.io.FileOutputStream;
@@ -35,36 +38,17 @@ public class Account implements Serializable //only if printing out file
     protected double rate;
     String menuItem;
     int accountSelection;
-    int acctArray[] = new int[3];
-    double deposit;
-    double withdraw;
+    private ArrayList<Transaction> transactions;
     double balanceNew;
     double balanceOld;
     
 
     
-    public void Deposit()
-    {
-        System.out.println("Please enter the deposit amount:");
-        deposit = sc.nextDouble();
-        
-    }
-    
-    
-    public void Withdraw()
-    {
-        System.out.println("You are in Withdraw");
-    }
-    
-    
-    public void CheckBalance()
-    {
-        System.out.println("You are in Check Balance");
-    }
+
    
     
   
-    public void createAccount()
+    public void createAcct()
     {
         {
         int[] acctArray = new int[3];
@@ -89,7 +73,7 @@ public class Account implements Serializable //only if printing out file
         }
     }
 
-    public void accountSelect()
+    public void acctSelect()
     {
         System.out.println("Please select your account");
         System.out.println("1:" + acctArray[0] );
@@ -104,7 +88,7 @@ public class Account implements Serializable //only if printing out file
         
     }
         
-    public void accountMenu()   
+    public void acctMenu()   
     {
         boolean quit = false;
         do 
@@ -124,7 +108,7 @@ public class Account implements Serializable //only if printing out file
                 {
                 case 1:
                     System.out.println("You have choosen to deposit:");
-                    Deposit();
+                    
                 break;
                 case 2:
                     System.out.println("You have choosen to withdraw:");
