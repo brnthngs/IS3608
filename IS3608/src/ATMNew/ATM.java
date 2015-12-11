@@ -72,6 +72,7 @@ public class ATM
         return authUser;
     }
     
+    
     public static void printUserMenu(User theUser, Scanner sc)
     {
         // print a summary of the user's accounts
@@ -149,7 +150,6 @@ public class ATM
         
         //print the transaction history
         theUser.printAcctTransHistory(theAcct);
-        
     }
     public static void transferFunds(User theUser, Scanner sc)
     {
@@ -163,7 +163,7 @@ public class ATM
         do
         {
             System.out.printf("Enter the number (1-%d) of the account\n" + 
-                    "to transfer from: ");
+                    "to transfer from: ", theUser.numAccounts());
             fromAcct = sc.nextInt()-1;
             if (fromAcct < 0 || fromAcct >= theUser.numAccounts())
             {
@@ -177,7 +177,7 @@ public class ATM
         do
         {
             System.out.printf("Enter the number (1-%d) of the account\n" + 
-                    "to transfer to: ");
+                    "to transfer to: ", theUser.numAccounts());
             toAcct = sc.nextInt()-1;
             if (toAcct < 0 || toAcct >= theUser.numAccounts())
             {
@@ -207,9 +207,9 @@ public class ATM
         }
         while (amount <0 || amount > acctBal);
         // finally do the transfer
-        theUser.addAccountTransaction(fromAcct, -1*amount, String.format(
+        theUser.addAcctTransaction(fromAcct, -1*amount, String.format(
                 "Transfer to account %s", theUser.getAcctUUID(toAcct)));
-        theUser.addAccountTransaction(toAcct, amount, String.format(
+        theUser.addAcctTransaction(toAcct, amount, String.format(
                 "Transfer to account %s", theUser.getAcctUUID(fromAcct)));
     }
     
@@ -226,11 +226,11 @@ public class ATM
         double acctBal;
         String memo;
         
-        //get the account to transfer from
+        //get the account to withdraw from
         do
         {
             System.out.printf("Enter the number (1-%d) of the account\n" + 
-                    "to transfer from: ");
+                    "to withdraw from: ", theUser.numAccounts());
             fromAcct = sc.nextInt()-1;
             if (fromAcct < 0 || fromAcct >= theUser.numAccounts())
             {
@@ -240,7 +240,7 @@ public class ATM
         while(fromAcct <0 || fromAcct >= theUser.numAccounts());
         acctBal = theUser.getAcctBalance(fromAcct);
         
-        // get the amount to to transfer
+        // get the amount to withdraw
         do
         {
             System.out.printf("Enter the amount to transfer (max $%.02f): $", 
@@ -285,7 +285,7 @@ public class ATM
         do
         {
             System.out.printf("Enter the number (1-%d) of the account\n" + 
-                    "to transfer from: ");
+                    "to deposit in: ", theUser.numAccounts());
             toAcct = sc.nextInt()-1;
             if (toAcct < 0 || toAcct >= theUser.numAccounts())
             {
@@ -305,16 +305,12 @@ public class ATM
             {
                 System.out.printf("Amount must be greater than zero,");
             }
-            else if (amount > acctBal)
-            {
-                System.out.printf("Amount must not be greater than\n" + 
-                        "balance of $%.02f.\n", acctBal);
-            }    
+ 
         }
-        while (amount <0 || amount > acctBal);
+        while (amount <0);
         
         //Clear scanner
-        System.out.println("Enter a memo: ");
+        System.out.print("Enter a memo: ");
         memo = sc.nextLine();
         
         // do the deposit
