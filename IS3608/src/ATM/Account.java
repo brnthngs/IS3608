@@ -126,6 +126,7 @@ public class Account implements Serializable //only if printing out file
     public void CheckBalance(ATM balance)
     {
     System.out.println("You are in Check Balance");
+    System.out.println("")
     double acctBalance = this.balance;
     System.out.println(this.balance);
     }

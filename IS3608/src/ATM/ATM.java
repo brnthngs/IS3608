@@ -92,6 +92,11 @@ public class ATM
             System.out.println("Please enter your Last Name");
             String lastName = sc.next();
             acct[i].setAcctName(lastName,acctNumber);
+            System.out.println("Account " + acct[i] + " belongs to " + firstName + " " + lastName);
+            a1.balance = 100.00; 
+            a1.rate = 0.05;
+            System.out.println("Your starting balance is $100.00");
+            System.out.println("Your starting interest rate is 5%");
             a1.acctMenu();
 //            System.out.println(this.acct);
         }
@@ -129,12 +134,7 @@ public class ATM
 //            System.out.println("Congratulations on your new account!");
 //          // acctArray[i] = i++;
 
-//            System.out.println("Account " + acctArray[i] + " belongs to " + firstName + " " + lastName);
-//            balance = 100.00; 
-//            rate = 0.05;
-//            System.out.println("Your starting balance is $100.00");
-//            System.out.println("Your starting interest rate is 5%");
-////            acctArray[i].setAcctName(lastName);
+
 //            ATM.mainMenu();
 //            }  
 //        }
