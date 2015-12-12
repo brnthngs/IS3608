@@ -8,6 +8,7 @@ package ATM;
 
 
 import Benjamin.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -101,30 +102,41 @@ public class ATM
 //            System.out.println(this.acct);
         }
     }
-    
+
     /**
      *
      */
     public void selectAcct()
     {
         int menuInput;
-       
+        boolean quit = false;
         System.out.println("Please enter your account number");
         menuInput = sc.nextInt();
-        if (menuInput != 0 || menuInput != 1 || menuInput != 2)
+        if (menuInput == 0)
         {
-            System.out.println("Please enter a valid account number");
-            menuInput = sc.nextInt();
+           //ArrayList<Account>acct;
+           System.out.println(acct);
+           a1.acctMenu();
+        }
+        else if (menuInput == 1)
+        {
+            System.out.println(acct);
+            a1.acctMenu();
+        }
+        else if (menuInput == 2)
+        {
+            System.out.println(acct);
+            a1.acctMenu();
         }
         else
         {
-
-            a1.acctMenu();
+        System.out.println("Please enter a valid account number");
+        selectAcct();
         }
- 
     }
-   
 }
+   
+
         //Account[] acctArray = new Account[3];
         //Scanner sc = new Scanner(System.in);
         //int i;
