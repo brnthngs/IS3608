@@ -8,9 +8,15 @@ package ATM;
 
 
 // import functions from Java API
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -41,6 +47,7 @@ public class Account implements Serializable //only if printing out file
     private ArrayList<Transaction> transactions;
     double balanceNew;
     double balanceOld;
+    Transaction Tr = new Transaction();
     
 
     
@@ -75,11 +82,11 @@ public class Account implements Serializable //only if printing out file
 
     public void acctSelect()
     {
-        System.out.println("Please select your account");
-        System.out.println("1:" + acctArray[0] );
-        System.out.println("2:" + acctArray[1] );
-        System.out.println("3:" + acctArray[2] );
-        accountSelection = sc.nextInt();
+//        System.out.println("Please select your account");
+//        System.out.println("1:" + acctArray[0] );
+//        System.out.println("2:" + acctArray[1] );
+//        System.out.println("3:" + acctArray[2] );
+//        accountSelection = sc.nextInt();
         
         if (accountSelection == 1)
         {
@@ -108,25 +115,27 @@ public class Account implements Serializable //only if printing out file
                 {
                 case 1:
                     System.out.println("You have choosen to deposit:");
-                    
+                    Tr.Deposit(sc);
                 break;
                 case 2:
                     System.out.println("You have choosen to withdraw:");
-                    Withdraw();
+                    Tr.Withdraw();
                 break;
                 case 3:
                     System.out.println("You have choosen to check your balance:");
-                    CheckBalance();
+                    Tr.CheckBalance();
                     break;
                 case 99:
                     quit = true;
+                    ATM.mainMenu();
                 break;
                 default:
                     System.out.println("Invalid menu choice, please make another selection.");
             } 
         }
         while (!quit);
-        return;
+        ATM.mainMenu();
+
  
         
     }
