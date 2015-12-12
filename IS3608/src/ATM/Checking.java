@@ -13,7 +13,6 @@ import Benjamin.*;
  * @author bpwc0b
  */
 public class Checking extends Account
-
 {
         public void getInterest()
     {

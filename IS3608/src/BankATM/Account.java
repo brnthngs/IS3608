@@ -7,9 +7,12 @@ package BankATM;
 
 /**
  *
- * @author wetteb
+ * @author bpwc0b
  */
-public class Account
+public class Account 
 {
-    
+    public void Account()
+    {
+
+    }
 }

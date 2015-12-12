@@ -5,14 +5,29 @@
  */
 package BankATM;
 
+import java.util.Scanner;
+
 /**
  *
- * @author wetteb
+ * @author bpwc0b
  */
 public class ATM 
 {
     public static void main(String[] args)
     {
+        Scanner sc = new Scanner(System.in);
+        User aUser = theAccount.addUser();
+        Account newAccount = new Account();
+        
+        User curUser;
+        while (true)
+        {
+            curUser = ATM.mainMenu();
+            ATM.printUserMenu(curUser, sc);
+        }
+        
         
     }
+    
+    
 }

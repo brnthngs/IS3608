@@ -16,29 +16,23 @@ import java.util.*;
 import java.lang.*;
 public class Transaction 
 {
-    // amount to be deposited into an account
-    double depAmt;
-    // amount to be withdrawn from an account
-    double withAmt;
+
     
-    public void Deposit(Scanner sc)
-    {
-    System.out.println("Please enter the deposit amount:");
-    depAmt = sc.nextDouble();
-
-    }
-
-
-    public void Withdraw()
-    {
-    System.out.println("You are in Withdraw");
-    }
-
-
-    public void CheckBalance()
-    {
-    System.out.println("You are in Check Balance");
-    }
+//    public void Transfer()
+//    {
+//        int fromAcct;
+//        int toAcct;
+//        double amount;
+//        double acctBal;
+//        
+//        do
+//        {
+//            System.out.printf("Enter the number (1-%d) of the account\n" + 
+//                    "to transfer funds from:", theUser.numAccounts());
+//            fromAcct = sc.nextInt()-1;
+//        }
+//        
+//    }
 
 
 }

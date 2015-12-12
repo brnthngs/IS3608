@@ -7,9 +7,12 @@ package BankATM;
 
 /**
  *
- * @author wetteb
+ * @author bpwc0b
  */
-public class Savings extends Account
+public class Savings 
 {
-    
+    public void Savings()
+    {
+        
+    }
 }

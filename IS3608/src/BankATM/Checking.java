@@ -7,9 +7,12 @@ package BankATM;
 
 /**
  *
- * @author wetteb
+ * @author bpwc0b
  */
-public class Checking extends Account
+public class Checking 
 {
-    
+    public void Checking()
+    {
+        
+    }
 }

@@ -120,6 +120,7 @@ public class Bank
         newUser.addAccount(newAccount);
         this.accounts.add(newAccount);
         return newUser;
+	
     }
     /**
      * 

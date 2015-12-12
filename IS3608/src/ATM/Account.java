@@ -8,10 +8,8 @@ package ATM;
 
 
 // import functions from Java API
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Serializable;
+import java.io.*;
+//
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,60 +41,27 @@ public class Account implements Serializable //only if printing out file
     protected boolean dateflag = false;
     protected double rate;
     String menuItem;
-    int accountSelection;
     private ArrayList<Transaction> transactions;
+    double acctBalance;
     double balanceNew;
     double balanceOld;
     Transaction Tr = new Transaction();
-    
 
-    
-
-   
-    
-  
-    public void createAcct()
+    public void setAcctName(String lastName, int i)
     {
-        {
-        int[] acctArray = new int[3];
-        Scanner sc = new Scanner(System.in);
-        int i;
-        for (i=0; i < acctArray.length; i++)
-            {
-            System.out.println("Your have been assigned a new accout");
-            System.out.println("Congratulations on your new account!");
-            acctArray[i] = i + 1;
-            System.out.println("Please enter your First Name");
-            String firstName = sc.next();
-            System.out.println("Please enter your Last Name");
-            String lastName = sc.next();
-            System.out.println("Account " + acctArray[i] + " belongs to " + firstName + " " + lastName);
-            balance = 100.00; 
-            rate = 0.05;
-            System.out.println("Your starting balance is $100.00");
-            System.out.println("Your starting interest rate is 5%");
-            break;
-            }  
-        }
+        
+        ArrayList<Account>accounts;
+       
     }
 
-    public void acctSelect()
+        //return menuInput;
+//      Scanner sc = new Scanner(System.in);
+//        accountSelection[i].acctBalance = sc.nextDouble();
+//        acctArray[i].acctBalance
+
+    public void acctMenu()
     {
-//        System.out.println("Please select your account");
-//        System.out.println("1:" + acctArray[0] );
-//        System.out.println("2:" + acctArray[1] );
-//        System.out.println("3:" + acctArray[2] );
-//        accountSelection = sc.nextInt();
-        
-        if (accountSelection == 1)
-        {
-            
-        }
-        
-    }
-        
-    public void acctMenu()   
-    {
+        ATM atm = new ATM();
         boolean quit = false;
         do 
         {
@@ -115,30 +80,56 @@ public class Account implements Serializable //only if printing out file
                 {
                 case 1:
                     System.out.println("You have choosen to deposit:");
-                    Tr.Deposit(sc);
+                    Deposit();
                 break;
                 case 2:
                     System.out.println("You have choosen to withdraw:");
-                    Tr.Withdraw();
+                    Withdraw();
                 break;
                 case 3:
-                    System.out.println("You have choosen to check your balance:");
-                    Tr.CheckBalance();
+                    System.out.println("You have choosen to check your "
+                            + "balance:");
+                    CheckBalance(atm);
                     break;
                 case 99:
                     quit = true;
-                    ATM.mainMenu();
+                    atm.mainMenu();
                 break;
                 default:
-                    System.out.println("Invalid menu choice, please make another selection.");
+                    System.out.println("Invalid menu choice, please make another"
+                            + " selection.");
             } 
         }
         while (!quit);
-        ATM.mainMenu();
-
- 
-        
+        atm.mainMenu();
     }
+     
+        // amount to be deposited into an account
+    double depAmt;
+    // amount to be withdrawn from an account
+    double withAmt;
+    
+    public void Deposit()
+    {
+    System.out.println("Please enter the deposit amount:");
+    depAmt = sc.nextDouble();
+
+    }
+
+
+    public void Withdraw()
+    {
+    System.out.println("You are in Withdraw");
+    }
+
+
+    public void CheckBalance(ATM balance)
+    {
+    System.out.println("You are in Check Balance");
+    double acctBalance = this.balance;
+    System.out.println(this.balance);
+    }
+    
 
     public void getInterest()
     {
@@ -162,7 +153,6 @@ public class Account implements Serializable //only if printing out file
                 //Date date= new Date();
         Date mydate = formatter.parse(inputText, pos);
 
-        
         cal1.setTime(mydate);
 
         firstdate = cal1.get(Calendar.DAY_OF_YEAR);
