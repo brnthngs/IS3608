@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ATM;
+package BankATM;
 
 /**
  *
  * @author bpwc0b
  */
-class AccountList<T> {
+public class Transaction 
+{
     
 }

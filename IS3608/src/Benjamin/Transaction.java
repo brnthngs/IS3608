@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BankATM;
+package Benjamin;
 
 /**
  *
- * @author bpwc0b
+ * @author wetteb
  */
-public class Savings extends Account
-{
-    public void Savings()
-    {
-        
-    }
+public class Transaction {
+    
 }

@@ -7,9 +7,10 @@
 package ATM;
 
 
-import Benjamin.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
 
 /**
  *
@@ -17,32 +18,27 @@ import java.util.Scanner;
  */
 public class ATM
 {
+//    ArrayList <Account> accounts;
     int acctNumber;
-    Account a1 = new Account();
     Scanner sc = new Scanner(System.in);
-    Account[] acct = new Account[3];
+    public Account[] acct = new Account[3];
+    private String firstName;
+    private String lastName;
 
-    /**
-     * Main method, inits the program
-     * @param args  
-     */
-    public static void main(String [] args) 
+    public static void main(String [] args) throws IOException 
     {
         ATM a = new ATM();
- //       Account a1 = new Account();
+//        a.ReadFile();
         a.mainMenu();
-        
-        
     }
     /**
      * First menu presented to user
      */
-    public void mainMenu()
+    public void mainMenu() throws IOException
     {
-        
         int menuItem;
         Scanner sc = new Scanner(System.in);
-        
+        do
         {
         System.out.println("|-----------------------------------------------|");
         System.out.println("|            Welcome to WWSYM Bank!             |");
@@ -52,38 +48,59 @@ public class ATM
         System.out.println("|                                               |");
         System.out.println("|         1.  Access your current Account       |");
         System.out.println("|         2.  Create a new Account              |");
-        System.out.println("|                                               |");
+        System.out.println("|         99.  Exit                             |");
         System.out.println("|                                               |");
         System.out.println("|-----------------------------------------------|");
         menuItem = sc.nextInt();
         
         switch (menuItem) 
             {
-            case 1:
-                System.out.println("You have selected your current Account:");
-                selectAcct();
-            break;
-            case 2:
-                System.out.println("You have selected to create a new Account:");
-                createAcct();
-            break;
-            default:
-                System.out.println("Invalid menu choice, please make another "
-                        + "selection.");
-            break;
+                case 1:
+                {
+                    System.out.println("You have selected your current Account:");
+                    selectAcct();
+                    break;
+                }
+                case 2:
+                {
+                    System.out.println("You have selected to create a new Account:");
+                    createAcct();
+                break;
+                }
+                default:
+                {
+                    System.out.println("Invalid menu choice, please make another " 
+                            + "selection.");
+                }
             }
         }
-       
+    while (menuItem != 99);
+    WriteFile();
     }
+    
+        public String getFirstName()
+        {
+            System.out.print("Please enter your first name:");
+            firstName = sc.next();
+            return firstName;
+        }
+        
+        public String getLastName()
+        {
+            System.out.print("Please enter your first name:");
+            lastName = sc.next();
+            return lastName;
+        }
     /**
      * 
      */
     public void createAcct()
     {
-        int i;
-        String input;
-        for (i = 0; i < acct.length -1; i++);
+        
+        
+        for(int i = 0; i<acct.length; i++)
         {
+//            Account a1 = new Account();
             //Account act = new Account();
             acctNumber = i;
             acct[i] = new Account();
@@ -93,40 +110,42 @@ public class ATM
             System.out.println("Please enter your Last Name");
             String lastName = sc.next();
             acct[i].setAcctName(lastName,acctNumber);
-            System.out.println("Account " + acct[i] + " belongs to " + firstName + " " + lastName);
-            a1.balance = 100.00; 
-            a1.rate = 0.05;
-            System.out.println("Your starting balance is $100.00");
-            System.out.println("Your starting interest rate is 5%");
-            a1.acctMenu();
-//            System.out.println(this.acct);
+            System.out.println("Account " + acct[i] + " belongs to " + 
+                    firstName + " " + lastName);
+            acct[i].balance = 100.00; 
+            acct[i].rate = 0.05;
+            System.out.printf("Your starting balance is $%.02f:", 
+                    this.acct[i].balance);
+            System.out.println("");
+            System.out.printf("Your starting interest rate is %.02f", 
+                    this.acct[i].rate);
+            System.out.println("");
         }
     }
 
     /**
      *
      */
-    public void selectAcct()
+    public void selectAcct() throws IOException
     {
         int menuInput;
-        boolean quit = false;
         System.out.println("Please enter your account number");
+        System.out.println(Arrays.toString(acct));
         menuInput = sc.nextInt();
         if (menuInput == 0)
         {
-           //ArrayList<Account>acct;
-           System.out.println(acct);
-           a1.acctMenu();
+           System.out.println(Arrays.toString(acct));
+           acct[menuInput].acctMenu();
         }
         else if (menuInput == 1)
         {
-            System.out.println(acct);
-            a1.acctMenu();
+            System.out.println(Arrays.toString(acct));
+            acct[menuInput].acctMenu();
         }
         else if (menuInput == 2)
         {
-            System.out.println(acct);
-            a1.acctMenu();
+            System.out.println(Arrays.toString(acct));
+            acct[menuInput].acctMenu();
         }
         else
         {
@@ -134,24 +153,36 @@ public class ATM
         selectAcct();
         }
     }
+    
+    public void WriteFile()
+    {
+        try
+        {
+            FileOutputStream fos = new FileOutputStream("Accountblah.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            //Test x = new Test("testing", 37)
+            oos.writeObject(acct);
+            oos.flush();
+            fos.close();
+        }
+        catch (Throwable e)
+        {
+            System.err.println(e);
+        }
+
+    }
+    
+    public void ReadFile() {
+        try
+        {
+            FileInputStream fis = new FileInputStream("Accountblah.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            acct = (Account[]) ois.readObject();
+            fis.close();
+        }
+        catch (Throwable e)
+        {
+            System.err.println(e);
+        }
+    }
 }
-   
-
-        //Account[] acctArray = new Account[3];
-        //Scanner sc = new Scanner(System.in);
-        //int i;
-        //for (i=0; i < acctArray.length; i++)
-//            {
-//            System.out.println("Your have been assigned a new accout");
-//            System.out.println("Congratulations on your new account!");
-//          // acctArray[i] = i++;
-
-
-//            ATM.mainMenu();
-//            }  
-//        }
-//    }
-//	
-
-//
-//
