@@ -20,9 +20,8 @@ import java.lang.NullPointerException;
  *
  * @author bpwc0b
  */
-public class Account implements Serializable //only if printing out file
+public class Account implements Serializable
 {
-   
     protected double balance;
     protected int firstdate;
     protected int seconddate;
@@ -38,15 +37,8 @@ public class Account implements Serializable //only if printing out file
     
     public void setAcctName(String lastName, int i)
     {
-        
         ArrayList<Account>accounts;
-       
     }
-
-        //return menuInput;
-//      Scanner sc = new Scanner(System.in);
-//        accountSelection[i].acctBalance = sc.nextDouble();
-//        acctArray[i].acctBalance
 
     public void acctMenu() throws IOException
     {
@@ -96,7 +88,6 @@ public class Account implements Serializable //only if printing out file
                 }
                 case 99:
                     quit = true;
-                    //atm.mainMenu();
                 break;
                 default:
                     System.out.println("Invalid menu choice, please make another"
@@ -104,7 +95,6 @@ public class Account implements Serializable //only if printing out file
             } 
         }
         while (!quit);
-        //atm.mainMenu();
     }
      
     // amount to be deposited into an account
@@ -131,13 +121,11 @@ public class Account implements Serializable //only if printing out file
     System.out.printf("Your new balance is $%.02f\n", balance);
     return balance;
     }
-
-
+    
     public void CheckBalance()
     {
     System.out.println("You are in Check Balance");
     System.out.println("");
-//    double acctBalance = this.balance;
     System.out.printf("Your current balance is $%.02f\n", balance);
     }
     
@@ -161,14 +149,12 @@ public class Account implements Serializable //only if printing out file
 
     public void getDate1() throws IOException 
     {
-        
         System.out.print("Enter your first date(mm/dd/yyyy): ");
         BufferedReader br;
         br = new BufferedReader(new InputStreamReader(System.in));
         String inputText = br.readLine();
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         ParsePosition pos = new ParsePosition(0);
-                //Date date= new Date();
         Date mydate = formatter.parse(inputText, pos);
         cal1.setTime(mydate);
         firstdate = cal1.get(Calendar.DAY_OF_YEAR);
@@ -183,7 +169,6 @@ public class Account implements Serializable //only if printing out file
         String inputText = br.readLine();
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         ParsePosition pos = new ParsePosition(0);
-                //Date date= new Date();
         Date mydate = formatter.parse(inputText, pos);
         cal1.setTime(mydate);
         seconddate = cal1.get(Calendar.DAY_OF_YEAR);
