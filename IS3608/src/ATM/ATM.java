@@ -18,7 +18,6 @@ import java.lang.*;
  */
 public class ATM
 {
-//    ArrayList <Account> accounts;
     int acctNumber;
     Scanner sc = new Scanner(System.in);
     public Account[] acct = new Account[3];
@@ -96,12 +95,8 @@ public class ATM
      */
     public void createAcct()
     {
-        
-        
         for(int i = 0; i<acct.length; i++)
         {
-//            Account a1 = new Account();
-            //Account act = new Account();
             acctNumber = i;
             acct[i] = new Account();
             
@@ -160,7 +155,6 @@ public class ATM
         {
             FileOutputStream fos = new FileOutputStream("Accountblah.txt");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            //Test x = new Test("testing", 37)
             oos.writeObject(acct);
             oos.flush();
             fos.close();
@@ -169,7 +163,6 @@ public class ATM
         {
             System.err.println(e);
         }
-
     }
     
     public void ReadFile() {

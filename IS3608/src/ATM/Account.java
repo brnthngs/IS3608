@@ -97,9 +97,7 @@ public class Account implements Serializable
         while (!quit);
     }
      
-    // amount to be deposited into an account
     double depAmt;
-    // amount to be withdrawn from an account
     double withAmt;
     
     public double Deposit()
