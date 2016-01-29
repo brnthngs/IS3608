@@ -7,7 +7,7 @@ public class Write
     {
         try
         {
-            FileOutputStream fos = new FileOutputStream("E:/file.out");
+            FileOutputStream fos = new FileOutputStream("./file.out");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             //Test x = new Test("testing", 37);
             Test y = new Test();

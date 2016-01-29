@@ -10,7 +10,7 @@ public class Read
         Test testobj = null;
         try
         {
-                FileInputStream fis = new FileInputStream("E:/file.out");
+                FileInputStream fis = new FileInputStream("./file.out");
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 testobj = (Test)ois.readObject();
                 fis.close();

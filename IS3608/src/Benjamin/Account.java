@@ -27,7 +27,8 @@ public class Account implements Serializable //only if printing out file
     protected double rate;
     String menuItem;
     int accountSelection;
-    int acctArray[] = new int[3];
+    int i;
+    int acctArray[] = new int[i];
 
     public void Deposit()
     {
@@ -53,7 +54,7 @@ public class Account implements Serializable //only if printing out file
         System.out.println("|                                               |");
         System.out.println("|         1.  Access your current Account       |");
         System.out.println("|         2.  Create a new Account              |");
-        System.out.println("|         3.  Delete your Facebook Page         |");
+        System.out.println("|                                               |");
         System.out.println("|                                               |");
         System.out.println("|-----------------------------------------------|");
         menuItem = sc.next();
@@ -67,10 +68,6 @@ public class Account implements Serializable //only if printing out file
             case 2:
                 System.out.println("You have selected to create a new Account:");
                 createAccount();
-            break;
-            case 3:
-                System.out.println("Please hold, we are currently deleting your facebook account:");
-                a1.mainMenu();
             break;
             default:
                 System.out.println("Invalid menu choice, please make another selection.");

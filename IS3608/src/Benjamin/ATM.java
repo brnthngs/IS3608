@@ -19,7 +19,6 @@ public class ATM
     
     public static void main(String [] args)
     {
-        System.out.println("Press the Enter key for menu: \n");
         Account A1 = new Account();
         A1.mainMenu();
     } 
